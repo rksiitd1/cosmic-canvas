@@ -1,0 +1,9 @@
+{
+    "components": [],
+    "framework": "react",
+    "paths": {
+      "root": "./src/components",
+      "styles": "./src/styles"
+    }
+  }
+  

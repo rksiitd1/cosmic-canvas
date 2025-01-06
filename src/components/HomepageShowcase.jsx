@@ -9,15 +9,71 @@ import {
   X
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription
-} from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import MinimalHomePage from './homepages/MinimalHomePage.tsx'
+import StunningHomePage from './homepages/StunningHomePage.tsx'
+import EtherealHomePage from './homepages/EtherealHomePage.tsx'
+
+// Custom Button Component
+const Button = ({ variant = 'default', size = 'default', className = '', children, asChild, ...props }) => {
+  const baseStyles = "inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50";
+  
+  const variants = {
+    default: "bg-gray-800 hover:bg-gray-700 text-white",
+    ghost: "hover:bg-gray-800 text-gray-400 hover:text-white",
+    outline: "border border-gray-700 hover:bg-gray-800 text-gray-300"
+  };
+
+  const sizes = {
+    default: "h-10 px-4 py-2",
+    sm: "h-8 px-3 text-sm",
+    lg: "h-12 px-6",
+    icon: "h-9 w-9"
+  };
+
+  const Element = asChild ? 'a' : 'button';
+
+  return (
+    <Element 
+      className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
+      {...props}
+    >
+      {children}
+    </Element>
+  );
+};
+
+// Custom Modal Component
+const Modal = ({ open, onClose, title, children }) => {
+  if (!open) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center">
+      <div 
+        className="fixed inset-0 bg-black/50 backdrop-blur-sm"
+        onClick={onClose}
+      />
+      <div className="relative bg-gray-900 rounded-lg w-full max-w-md mx-4 p-6 shadow-xl">
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-xl font-semibold">{title}</h2>
+          <button
+            onClick={onClose}
+            className="p-1 rounded-full hover:bg-gray-800 transition-colors"
+          >
+            <X size={20} />
+          </button>
+        </div>
+        {children}
+      </div>
+    </div>
+  );
+};
+
+// Badge Component
+const Badge = ({ children, className = '' }) => (
+  <span className={`inline-flex items-center rounded-full bg-gray-800 px-2.5 py-0.5 text-sm font-medium transition-colors hover:bg-gray-700 ${className}`}>
+    {children}
+  </span>
+);
 
 const HomepageShowcase = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -243,33 +299,30 @@ const HomepageShowcase = () => {
         </div>
       </main>
 
-      {/* Info Dialog */}
-      <Dialog open={showInfo} onOpenChange={setShowInfo}>
-        <DialogContent className="sm:max-w-[425px]">
-          <DialogHeader>
-            <DialogTitle>{currentHomepage.name}</DialogTitle>
-            <DialogDescription className="text-gray-400">
-              {currentHomepage.description}
-            </DialogDescription>
-          </DialogHeader>
-          <div className="space-y-4">
-            <div>
-              <h4 className="text-sm font-medium mb-2">Technologies</h4>
-              <div className="flex flex-wrap gap-2">
-                {currentHomepage.tech.map((tech) => (
-                  <Badge key={tech} variant="secondary">
-                    {tech}
-                  </Badge>
-                ))}
-              </div>
-            </div>
-            <div>
-              <h4 className="text-sm font-medium mb-2">Created by</h4>
-              <p className="text-sm text-gray-400">{currentHomepage.author}</p>
+      {/* Info Modal */}
+      <Modal 
+        open={showInfo} 
+        onClose={() => setShowInfo(false)}
+        title={currentHomepage.name}
+      >
+        <div className="space-y-4">
+          <p className="text-gray-400">{currentHomepage.description}</p>
+          
+          <div>
+            <h4 className="text-sm font-medium mb-2">Technologies</h4>
+            <div className="flex flex-wrap gap-2">
+              {currentHomepage.tech.map((tech) => (
+                <Badge key={tech}>{tech}</Badge>
+              ))}
             </div>
           </div>
-        </DialogContent>
-      </Dialog>
+          
+          <div>
+            <h4 className="text-sm font-medium mb-2">Created by</h4>
+            <p className="text-sm text-gray-400">{currentHomepage.author}</p>
+          </div>
+        </div>
+      </Modal>
     </div>
   );
 };
