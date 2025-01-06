@@ -11,7 +11,7 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 import MinimalHomePage from './homepages/MinimalHomePage';  // Import the MinimalHomePage component
 import StunningHomePage from './homepages/StunningHomePage';  // Import the StunningHomePage component
-import EtherealHomePage from './homepages/EtherealHomePage';  // Import the EtherealHomePage component
+import EtherealHomePage from './homepages/EtherealHomePage';  // Import the EtherealHomePage components
 
 // Custom Button Component
 const Button = ({ variant = 'default', size = 'default', className = '', children, asChild, ...props }) => {
@@ -202,12 +202,12 @@ const HomepageShowcase = () => {
       <main className="pt-20 pb-24">
         {/* Preview Section */}
         <motion.div 
-          className="relative w-full aspect-video max-w-6xl mx-auto my-8"
+          className="absolute w-full aspect-video max-w-6xl mx-auto my-8"
           layout
         >
           {/* Frame */}
           <motion.div 
-            className={`relative rounded-xl overflow-hidden border border-gray-800 shadow-2xl ${isFullscreen ? 'inset-0 fixed' : 'h-full'}`}
+            className={`absolute rounded-xl overflow-hidden border border-gray-800 shadow-2xl ${isFullscreen ? 'inset-0 fixed' : 'h-full' }`}
             layout
           >
             {/* Browser Chrome */}
