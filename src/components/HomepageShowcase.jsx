@@ -9,9 +9,9 @@ import {
   X
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import MinimalHomePage from './homepages/MinimalHomePage.jsx';
-import StunningHomePage from './homepages/StunningHomePage.jsx';
-import EtherealHomePage from './homepages/EtherealHomePage.jsx';
+import MinimalHomePage from './homepages/MinimalHomePage';  // Import the MinimalHomePage component
+import StunningHomePage from './homepages/StunningHomePage';  // Import the StunningHomePage component
+import EtherealHomePage from './homepages/EtherealHomePage';  // Import the EtherealHomePage component
 
 // Custom Button Component
 const Button = ({ variant = 'default', size = 'default', className = '', children, asChild, ...props }) => {
@@ -175,7 +175,7 @@ const HomepageShowcase = () => {
   const currentHomepage = homepages[currentIndex];
 
   return (
-    <div className="min-h-screen bg-gray-900 text-gray-100">
+    <div className={`min-h-screen ${isFullscreen ? 'fixed inset-0 z-50' : ''} bg-gray-900 text-gray-100`}>
       {/* Header */}
       <header className="fixed top-0 w-full z-50 bg-gray-900/80 backdrop-blur-md border-b border-gray-800">
         <div className="container mx-auto px-4 py-4">
@@ -207,8 +207,7 @@ const HomepageShowcase = () => {
         >
           {/* Frame */}
           <motion.div 
-            className={`relative rounded-xl overflow-hidden border border-gray-800 shadow-2xl
-              ${isFullscreen ? 'fixed inset-0 z-50' : 'h-full'}`}
+            className={`relative rounded-xl overflow-hidden border border-gray-800 shadow-2xl ${isFullscreen ? 'inset-0 fixed' : 'h-full'}`}
             layout
           >
             {/* Browser Chrome */}
