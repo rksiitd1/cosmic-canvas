@@ -9,9 +9,9 @@ import {
   X
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import MinimalHomePage from './homepages/MinimalHomePage';  // Import the MinimalHomePage component
-import StunningHomePage from './homepages/StunningHomePage';  // Import the StunningHomePage component
-import EtherealHomePage from './homepages/EtherealHomePage';  // Import the EtherealHomePage components
+import MinimalHomePage from './homepages/MinimalHomePage';
+import StunningHomePage from './homepages/StunningHomePage';
+import EtherealHomePage from './homepages/EtherealHomePage';
 
 // Custom Button Component
 const Button = ({ variant = 'default', size = 'default', className = '', children, asChild, ...props }) => {
@@ -79,8 +79,8 @@ const Badge = ({ children, className = '' }) => (
 const PreviewFrame = ({ children, isLoading }) => {
   return (
     <div className="w-full h-full bg-white overflow-hidden">
-      <div className="w-full h-full">
-        <div className="relative w-full h-full">
+      <div className="w-full h-full origin-top scale-[0.5] transform-gpu">
+        <div className="w-[200%] h-[200%] transform-gpu origin-top-left scale-50">
           {children}
         </div>
       </div>
@@ -157,25 +157,19 @@ const HomepageShowcase = () => {
 
   const nextHomepage = () => {
     setIsLoading(true);
-    setTimeout(() => {
-      setCurrentIndex((prev) => (prev + 1) % homepages.length);
-      setIsLoading(false);
-    }, 300);
+    setCurrentIndex((prev) => (prev + 1) % homepages.length);
   };
 
   const prevHomepage = () => {
     setIsLoading(true);
-    setTimeout(() => {
-      setCurrentIndex((prev) => (prev - 1 + homepages.length) % homepages.length);
-      setIsLoading(false);
-    }, 300);
+    setCurrentIndex((prev) => (prev - 1 + homepages.length) % homepages.length);
   };
 
   const CurrentHomepage = homepages[currentIndex].component;
   const currentHomepage = homepages[currentIndex];
 
   return (
-    <div className={`min-h-screen ${isFullscreen ? 'fixed inset-0 z-50' : ''} bg-gray-900 text-gray-100`}>
+    <div className="min-h-screen bg-gray-900 text-gray-100">
       {/* Header */}
       <header className="fixed top-0 w-full z-50 bg-gray-900/80 backdrop-blur-md border-b border-gray-800">
         <div className="container mx-auto px-4 py-4">
@@ -202,12 +196,13 @@ const HomepageShowcase = () => {
       <main className="pt-20 pb-24">
         {/* Preview Section */}
         <motion.div 
-          className="absolute w-full aspect-video max-w-6xl mx-auto my-8"
+          className="relative w-full aspect-video max-w-6xl mx-auto my-8"
           layout
         >
           {/* Frame */}
           <motion.div 
-            className={`absolute rounded-xl overflow-hidden border border-gray-800 shadow-2xl ${isFullscreen ? 'inset-0 fixed' : 'h-full' }`}
+            className={`relative rounded-xl overflow-hidden border border-gray-800 shadow-2xl
+              ${isFullscreen ? 'fixed inset-0 z-50' : 'h-full'}`}
             layout
           >
             {/* Browser Chrome */}
@@ -225,7 +220,7 @@ const HomepageShowcase = () => {
               </div>
             </div>
 
-            {/* Homepage Preview */}
+            {/* Homepage Preview with Scaling */}
             <div className="relative h-[calc(100%-2.5rem)]">
               <PreviewFrame isLoading={isLoading}>
                 <React.Suspense fallback={null}>
