@@ -9,9 +9,10 @@ import {
   X
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import MinimalHomePage from './homepages/MinimalHomePage.tsx'
-import StunningHomePage from './homepages/StunningHomePage.tsx'
-import EtherealHomePage from './homepages/EtherealHomePage.tsx'
+import MinimalHomePage from './homepages/MinimalHomePage';
+import StunningHomePage from './homepages/StunningHomePage';
+import EtherealHomePage from './homepages/EtherealHomePage';
+
 
 // Custom Button Component
 const Button = ({ variant = 'default', size = 'default', className = '', children, asChild, ...props }) => {
@@ -74,6 +75,33 @@ const Badge = ({ children, className = '' }) => (
     {children}
   </span>
 );
+
+// Preview Frame Component
+const PreviewFrame = ({ children, isLoading }) => {
+  return (
+    <div className="w-full h-full bg-white overflow-hidden">
+      <div className="w-full h-full origin-top scale-[0.5] transform-gpu">
+        <div className="w-[200%] h-[200%] transform-gpu origin-top-left scale-50">
+          {children}
+        </div>
+      </div>
+      <AnimatePresence mode="wait">
+        {isLoading && (
+          <motion.div 
+            className="absolute inset-0 flex items-center justify-center bg-gray-900"
+            exit={{ opacity: 0 }}
+            initial={{ opacity: 1 }}
+          >
+            <div className="flex flex-col items-center gap-4">
+              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-white" />
+              <p className="text-sm text-gray-400">Loading preview...</p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
 
 const HomepageShowcase = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -193,25 +221,13 @@ const HomepageShowcase = () => {
               </div>
             </div>
 
-            {/* Homepage Preview */}
-            <div className="relative h-full">
-              <AnimatePresence mode="wait">
-                {isLoading && (
-                  <motion.div 
-                    className="absolute inset-0 flex items-center justify-center bg-gray-900"
-                    exit={{ opacity: 0 }}
-                  >
-                    <div className="flex flex-col items-center gap-4">
-                      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-white" />
-                      <p className="text-sm text-gray-400">Loading preview...</p>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-              
-              <React.Suspense fallback={null}>
-                <CurrentHomepage onLoad={() => setIsLoading(false)} />
-              </React.Suspense>
+            {/* Homepage Preview with Scaling */}
+            <div className="relative h-[calc(100%-2.5rem)]">
+              <PreviewFrame isLoading={isLoading}>
+                <React.Suspense fallback={null}>
+                  <CurrentHomepage onLoad={() => setIsLoading(false)} />
+                </React.Suspense>
+              </PreviewFrame>
             </div>
           </motion.div>
 
