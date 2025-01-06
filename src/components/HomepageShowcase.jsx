@@ -9,9 +9,9 @@ import {
   X
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import MinimalHomePage from './homepages/MinimalHomePage';
-import StunningHomePage from './homepages/StunningHomePage';
-import EtherealHomePage from './homepages/EtherealHomePage';
+import MinimalHomePage from './homepages/MinimalHomePage.jsx';
+import StunningHomePage from './homepages/StunningHomePage.jsx';
+import EtherealHomePage from './homepages/EtherealHomePage.jsx';
 
 // Custom Button Component
 const Button = ({ variant = 'default', size = 'default', className = '', children, asChild, ...props }) => {
