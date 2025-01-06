@@ -13,7 +13,6 @@ import MinimalHomePage from './homepages/MinimalHomePage';
 import StunningHomePage from './homepages/StunningHomePage';
 import EtherealHomePage from './homepages/EtherealHomePage';
 
-
 // Custom Button Component
 const Button = ({ variant = 'default', size = 'default', className = '', children, asChild, ...props }) => {
   const baseStyles = "inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50";
@@ -80,8 +79,8 @@ const Badge = ({ children, className = '' }) => (
 const PreviewFrame = ({ children, isLoading }) => {
   return (
     <div className="w-full h-full bg-white overflow-hidden">
-      <div className="w-full h-full origin-top scale-[0.5] transform-gpu">
-        <div className="w-[200%] h-[200%] transform-gpu origin-top-left scale-50">
+      <div className="w-full h-full">
+        <div className="relative w-full h-full">
           {children}
         </div>
       </div>
@@ -158,12 +157,18 @@ const HomepageShowcase = () => {
 
   const nextHomepage = () => {
     setIsLoading(true);
-    setCurrentIndex((prev) => (prev + 1) % homepages.length);
+    setTimeout(() => {
+      setCurrentIndex((prev) => (prev + 1) % homepages.length);
+      setIsLoading(false);
+    }, 300);
   };
 
   const prevHomepage = () => {
     setIsLoading(true);
-    setCurrentIndex((prev) => (prev - 1 + homepages.length) % homepages.length);
+    setTimeout(() => {
+      setCurrentIndex((prev) => (prev - 1 + homepages.length) % homepages.length);
+      setIsLoading(false);
+    }, 300);
   };
 
   const CurrentHomepage = homepages[currentIndex].component;
@@ -221,7 +226,7 @@ const HomepageShowcase = () => {
               </div>
             </div>
 
-            {/* Homepage Preview with Scaling */}
+            {/* Homepage Preview */}
             <div className="relative h-[calc(100%-2.5rem)]">
               <PreviewFrame isLoading={isLoading}>
                 <React.Suspense fallback={null}>
