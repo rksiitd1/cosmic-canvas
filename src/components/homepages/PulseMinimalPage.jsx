@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Motion, Sun, Moon } from 'lucide-react';
+import { Move, Sun, Moon } from 'lucide-react';
 
 const Homepage = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -52,7 +52,7 @@ const Homepage = () => {
       </div>
 
       <div className="relative">
-        <Motion className={`w-12 h-12 mb-8 ${isDark ? 'text-gray-200' : 'text-gray-800'}`} />
+        <Move className={`w-12 h-12 mb-8 ${isDark ? 'text-gray-200' : 'text-gray-800'}`} />
         <h1 
           className={`text-6xl font-bold mb-4 tracking-tight transition-colors duration-700 ${
             isDark ? 'text-gray-200' : 'text-gray-800'

@@ -7,6 +7,7 @@ import AuroraPage from './components/homepages/AuroraPage';
 import PulseMinimalPage from './components/homepages/PulseMinimalPage';
 import NovaPage from './components/homepages/NovaPage';
 import CosmicPage from './components/homepages/CosmicPage';
+import NeoMinimalPage from './components/homepages/NeoMinimalPage';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/pulse-minimal-page" element={<PulseMinimalPage />} />
         <Route path="/nova-page" element={<NovaPage />} />
         <Route path="/cosmic-page" element={<CosmicPage />} />
+        <Route path="/neo-minimal-page" element={<NeoMinimalPage />} />
       </Routes>
     </Router>
   );
