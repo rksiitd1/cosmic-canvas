@@ -13,8 +13,7 @@ A modern collection of responsive homepage designs built with React.
 
 1. Clone the repository
 
-```
-bash
+```bash
 git clone https://github.com/rksiitd1/cosmic-canvas.git
 ```
 
