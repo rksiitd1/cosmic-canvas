@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Motion } from 'lucide-react';
+import { Move } from 'lucide-react';
 
 const Homepage = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -81,7 +81,7 @@ const Homepage = () => {
 
         {/* Animated icon */}
         <div className="mt-12 animate-pulse">
-          <Motion className="text-white w-12 h-12" />
+          <Move className="text-white w-12 h-12" />
         </div>
       </div>
 
