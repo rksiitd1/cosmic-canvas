@@ -16,6 +16,7 @@ import AuroraPage from './homepages/AuroraPage';
 import NovaPage from './homepages/NovaPage';
 import CosmicPage from './homepages/CosmicPage';
 import PulseMinimalPage from './homepages/PulseMinimalPage';
+import NeoMinimalPage from './homepages/NeoMinimalPage';
 
 
 // Custom Button Component
@@ -149,6 +150,17 @@ const HomepageShowcase = () => {
     },
     {
       id: 4,
+      name: "Neo Minimal",
+      description: "A contemporary take on minimalism with subtle interactions and clean typography. Perfect for startups and tech companies.",
+      component: NeoMinimalPage,
+      tech: ["React", "Tailwind CSS", "Framer Motion"],
+      author: "Design Team",
+      githubUrl: "https://github.com/rksiitd1/cosmic-canvas/blob/main/src/components/homepages/NeoMinimalPage.jsx",
+      demoUrl: "/neo-minimal-page",
+      background: "bg-gradient-to-br from-purple-600 to-pink-600"
+    },
+    {
+      id: 5,
       name: "Pulse Minimal",
       description: "A dynamic minimal design with pulsing elements and smooth transitions. Ideal for product showcases.",
       component: PulseMinimalPage,
@@ -159,7 +171,7 @@ const HomepageShowcase = () => {
       background: "bg-gradient-to-br from-red-600 to-orange-600"
     },
     {
-      id: 5,
+      id: 6,
       name: "Nova Design",
       description: "A bold and innovative approach to minimal design with striking visuals. Perfect for digital agencies.",
       component: NovaPage,
@@ -170,7 +182,7 @@ const HomepageShowcase = () => {
       background: "bg-gradient-to-br from-yellow-600 to-red-600"
     },
     {
-      id: 6,
+      id: 7,
       name: "Cosmic Flow",
       description: "A stunning design with cosmic elements and fluid animations. Ideal for innovative brands.",
       component: CosmicPage,
