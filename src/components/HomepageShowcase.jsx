@@ -9,9 +9,15 @@ import {
   X
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import MinimalHomePage from './homepages/MinimalHomePage';
-import StunningHomePage from './homepages/StunningHomePage';
-import EtherealHomePage from './homepages/EtherealHomePage';
+
+import QuantumPage from './homepages/QuantumPage';
+import BoundlessPage from './homepages/BoundlessPage';
+import AuroraPage from './homepages/AuroraPage';
+import NovaPage from './homepages/NovaPage';
+import CosmicPage from './homepages/CosmicPage';
+import NeoMinimalPage from './homepages/NeoMinimalPage';
+import PulseMinimalPage from './homepages/PulseMinimalPage';
+
 
 // Custom Button Component
 const Button = ({ variant = 'default', size = 'default', className = '', children, asChild, ...props }) => {
@@ -111,37 +117,81 @@ const HomepageShowcase = () => {
   const homepages = [
     {
       id: 1,
-      name: "Minimal Complex",
+      name: "Quantum Design",
       description: "A minimalist design that combines simplicity with sophisticated interactions. Perfect for modern SaaS applications and professional services.",
-      component: MinimalHomePage,
+      component: QuantumPage,
       tech: ["React", "Tailwind CSS", "Framer Motion"],
       author: "Design Team",
-      githubUrl: "#",
-      demoUrl: "#",
+      githubUrl: "https://github.com/rksiitd1/cosmic-canvas/blob/main/src/components/homepages/QuantumPage.jsx",
+      demoUrl: "/quantum-page",
       background: "bg-gradient-to-br from-violet-600 to-indigo-600"
     },
     {
       id: 2,
-      name: "Stunning Visuals",
+      name: "Boundless Space",
       description: "An immersive visual experience with smooth animations and bold design elements. Ideal for creative agencies and portfolio websites.",
-      component: StunningHomePage,
+      component: BoundlessPage,
       tech: ["React", "GSAP", "CSS Modules"],
       author: "Creative Lab",
-      githubUrl: "#",
-      demoUrl: "#",
+      githubUrl: "https://github.com/rksiitd1/cosmic-canvas/blob/main/src/components/homepages/BoundlessPage.jsx",
+      demoUrl: "/boundless-page",
       background: "bg-gradient-to-br from-blue-600 to-cyan-600"
     },
     {
       id: 3,
-      name: "Ethereal Aesthetics",
+      name: "Aurora Dreams",
       description: "A dreamy, modern interface with floating elements and subtle animations. Perfect for luxury brands and artistic showcases.",
-      component: EtherealHomePage,
+      component: AuroraPage,
       tech: ["React", "SASS", "Three.js"],
       author: "Design Collective",
-      githubUrl: "#",
-      demoUrl: "#",
+      githubUrl: "https://github.com/rksiitd1/cosmic-canvas/blob/main/src/components/homepages/AuroraPage.jsx",
+      demoUrl: "/aurora-page",
       background: "bg-gradient-to-br from-emerald-600 to-teal-600"
     },
+    {
+      id: 4,
+      name: "Neo Minimal",
+      description: "A contemporary take on minimalism with subtle interactions and clean typography. Perfect for startups and tech companies.",
+      component: NeoMinimalPage,
+      tech: ["React", "Tailwind CSS", "Framer Motion"],
+      author: "Design Team",
+      githubUrl: "https://github.com/rksiitd1/cosmic-canvas/blob/main/src/components/homepages/NeoMinimalPage.jsx",
+      demoUrl: "/neo-minimal-page",
+      background: "bg-gradient-to-br from-purple-600 to-pink-600"
+    },
+    {
+      id: 5,
+      name: "Pulse Minimal",
+      description: "A dynamic minimal design with pulsing elements and smooth transitions. Ideal for product showcases.",
+      component: PulseMinimalPage,
+      tech: ["React", "GSAP", "Styled Components"],
+      author: "Creative Lab",
+      githubUrl: "https://github.com/rksiitd1/cosmic-canvas/blob/main/src/components/homepages/PulseMinimalPage.jsx",
+      demoUrl: "/pulse-minimal-page",
+      background: "bg-gradient-to-br from-red-600 to-orange-600"
+    },
+    {
+      id: 6,
+      name: "Nova Design",
+      description: "A bold and innovative approach to minimal design with striking visuals. Perfect for digital agencies.",
+      component: NovaPage,
+      tech: ["React", "Tailwind CSS", "Three.js"],
+      author: "Design Collective",
+      githubUrl: "https://github.com/rksiitd1/cosmic-canvas/blob/main/src/components/homepages/NovaPage.jsx",
+      demoUrl: "/nova-page",
+      background: "bg-gradient-to-br from-yellow-600 to-red-600"
+    },
+    {
+      id: 7,
+      name: "Cosmic Flow",
+      description: "A stunning design with cosmic elements and fluid animations. Ideal for innovative brands.",
+      component: CosmicPage,
+      tech: ["React", "GSAP", "Framer Motion"],
+      author: "Creative Lab",
+      githubUrl: "https://github.com/rksiitd1/cosmic-canvas/blob/main/src/components/homepages/CosmicPage.jsx",
+      demoUrl: "/cosmic-page",
+      background: "bg-gradient-to-br from-cyan-600 to-blue-600"
+    }
   ];
 
   const handleKeyPress = useCallback((e) => {

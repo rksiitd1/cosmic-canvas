@@ -1,19 +1,26 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomepageShowcase from './components/HomepageShowcase';
-import MinimalHomePage from './components/homepages/MinimalHomePage';
-import StunningHomePage from './components/homepages/StunningHomePage';
-import EtherealHomePage from './components/homepages/EtherealHomePage';
-
+import QuantumPage from './components/homepages/QuantumPage';
+import BoundlessPage from './components/homepages/BoundlessPage';
+import AuroraPage from './components/homepages/AuroraPage';
+import NeoMinimalPage from './components/homepages/NeoMinimalPage';
+import PulseMinimalPage from './components/homepages/PulseMinimalPage';
+import NovaPage from './components/homepages/NovaPage';
+import CosmicPage from './components/homepages/CosmicPage';
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<HomepageShowcase />} />
-        <Route path="/minimal" element={<MinimalHomePage />} />
-        <Route path="/stunning" element={<StunningHomePage />} />
-        <Route path="/ethereal" element={<EtherealHomePage />} />
+        <Route path="/quantum-page" element={<QuantumPage />} />
+        <Route path="/boundless-page" element={<BoundlessPage />} />
+        <Route path="/aurora-page" element={<AuroraPage />} />
+        <Route path="/neo-minimal-page" element={<NeoMinimalPage />} />
+        <Route path="/pulse-minimal-page" element={<PulseMinimalPage />} />
+        <Route path="/nova-page" element={<NovaPage />} />
+        <Route path="/cosmic-page" element={<CosmicPage />} />
       </Routes>
     </Router>
   );
