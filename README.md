@@ -1,4 +1,4 @@
-# Stellar Pages
+# Cosmic Canvas
 
 A modern collection of responsive homepage designs built with React.
 
@@ -12,8 +12,6 @@ A modern collection of responsive homepage designs built with React.
 ## Installation
 
 1. Clone the repository
-```
-
 
 ```
 bash
@@ -22,7 +20,7 @@ git clone https://github.com/rksiitd1/cosmic-canvas.git
 
 2. Install dependencies
 ```bash
-cd stellar-pages
+cd cosmic-canvas
 npm install
 ```
 
